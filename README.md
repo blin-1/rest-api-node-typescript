@@ -1,11 +1,19 @@
-# Building RESTful Web APIs with Node.js, Express, MongoDB and TypeScript
+# RESTful Web APIs with Node.js, Express, MongoDB and TypeScript
 
-This is a simple API that saves contact information of people. 
+This is a work in progress
 
-There are two versions of this project. 
+This works over https - so, either get you certificate, or for development purposes just ignore the browser warning and proceed
 
-- [V1.0.0](https://github.com/dalenguyen/rest-api-node-typescript/tree/v1.0.0): you can run the server directly after cloning this version. It will create a simple RESTful API over HTTP. 
-- [V2.0.0](https://github.com/dalenguyen/rest-api-node-typescript/tree/v2.0.0): this is a more secure and control API project. You need to read the post on [how to secure RESTful API application](https://itnext.io/building-restful-web-apis-with-node-js-express-mongodb-and-typescript-part-5-a80e5a7f03db) first. After that, you can run the project.
+The default URL is: *http://localhost:3000*
+
+Currently this is the mapping:
+
++/         - get list of contacts
++/register - register name and email and send verification email (use valid email account in crmController.ts)
++/verify   - work in progress (get the id from req and compare it with db copy, foundby username)
++/update   - work in progress (check if user is verified - verifiedEmail is not blank)
+
+
 
 ## Requirements
 
@@ -17,16 +25,10 @@ Install global TypeScript and TypeScript Node
 npm install -g typescript ts-node
 ```
 
-## Getting Started
-
-You should install [MongoDB](https://docs.mongodb.com/manual/administration/install-community/) on your local machine, or use other services such as [mLab](https://mlab.com/) or [Compose](https://www.compose.com/compare/mongodb)
-
-After that, you will have to replace the mongoURL with your MongoDB address in *lib/app.ts*
-
 ## Clone this repository
 
 ```
-git clone git@github.com:dalenguyen/rest-api-node-typescript.git .
+git clone https://github.com/blin-1/rest-api-node-typescript
 ```
 
 Then install the dependencies
