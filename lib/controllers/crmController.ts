@@ -7,12 +7,14 @@ const Contact = mongoose.model('Contact', ContactSchema, 'Users');
 export class ContactController{
 
     public addNewContact (req: Request, res: Response) {                
-        let newContact = new Contact(req.body);
-    
+        let newContact = new Contact(req.body); //userName
+		newContact.unverifiedEmail=req.body.email;
+		newContact.verifiedEmail='';
+		console.log("newContact", newContact);
         newContact.save((err, contact) => {
-            if(err){
+            if (err) {
                 res.send(err);
-            }    
+            }
             res.json(contact);
         });
     }
